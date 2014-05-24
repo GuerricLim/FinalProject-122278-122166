@@ -40,7 +40,7 @@ class EmployeesController < ApplicationController
 		@days = 314 - @employee.absences
 		@salary = @employee.salary_per_day*@days
 		@total_salary = @salary/12*@employee.number_of_months
-		if @employee.number_of_months.to_i%12 != 0 
+		if @employee.number_of_months.to_i % 12 != 0
 			if @employee.dependents == 0
 				if @salary/12 <= 4167
 					@tax_witheld = 0
