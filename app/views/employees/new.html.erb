@@ -1,0 +1,6 @@
+<br><br><h1>New Employee</h1>
+<hr>
+<% if !@message.nil? %>
+	<%= @message %>
+<% end %>
+<%= render partial: "employees/form", locals: { employee: @employee} %>

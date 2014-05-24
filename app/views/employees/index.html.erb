@@ -1,0 +1,26 @@
+<br><br><h1>Employees</h1>
+<hr>
+<%= link_to "New Employee", new_employee_path %>
+<hr>
+
+<table class="table table-striped">
+	<thead>
+		<tr><b>
+			<td><b>Full Name</b></td>
+			<td><b>Show</b></td>
+			<td><b>Edit</b></td>
+			<td><b>Fire</b></td>
+		</tr></b>
+	</thead>
+	<tbody>
+		<% @employees.each do |employee| %>
+		<tr>
+			<td><%= employee.full_name %></td>
+			<td><%= link_to "Show", employee_path(employee.id) %></td>
+			<td><%= link_to "Edit", edit_employee_path(employee.id) %></td>
+			<td><%= link_to "Fire", employee_path(employee.id), method: :delete, data: { confirm: "Are you sure you want to fire this employee?" } %><br></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+

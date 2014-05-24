@@ -1,0 +1,11 @@
+<%= simple_form_for @employee do |f| %>
+	<%= f.input :full_name, required: true %>
+	<%= f.input :age, as: :integer, required: true  %>
+	<%= f.input :dependents, as: :integer, required: true %>
+	<%= f.input :salary_per_day, as: :float, required: true %>
+	<%= f.input :month, as: :integer, required: true %>
+	<%= f.input :absences, as: :integer, required: true %>
+	<%= f.input :status, as: :string, required: true %>
+	<hr>
+	<%= f.submit "Save" %>
+<% end %>

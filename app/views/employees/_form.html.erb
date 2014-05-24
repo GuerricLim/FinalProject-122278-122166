@@ -1,0 +1,12 @@
+<%= simple_form_for @employee do |f| %>
+	<%= f.input :full_name, required: true %>
+	<%= f.input :age, as: :integer, required: true  %>
+	<%= f.input :dependents, as: :integer, required: true %>
+	<%= f.input :salary_per_day, as: :float, required: true %>
+	<%= f.input :number_of_months, as: :integer, required: true %>
+	<%= f.input :absences, as: :integer, required: true %>
+	Status <br>
+	<%= f.select :status, ['Single', 'Married'], :prompt => 'Select One', required: true %>
+	<br>
+	<%= f.submit "Save" %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Employees</h1>
+<hr>
+
+<h2>Latest Employees</h2>
+
+<% @latest_employees.each do |r| %>
+	<%= render partial: "employees/employee", locals: { employee: r } %>
+<% end %>
