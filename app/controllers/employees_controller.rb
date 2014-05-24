@@ -226,15 +226,18 @@ class EmployeesController < ApplicationController
 			@tax = (125000 + 0.32*(@salary-500000))
 		end
 	end
-	if @employee.number_of_months % 12 == 0
-		@net_salary = @total_salary - @tax*(@employee.number_of_months/12)
+	if @employee.number_of_months >= 12 
+	if @tax*(@employee.number_of_months/12).to_i < @tax_witheld*@employee.number_of_months.to_i && @tax !=0
+		@net_salary = @total_salary + (@tax_witheld*@employee.number_of_months - @tax)
+	elsif @tax*(@employee.number_of_months/12).to_i == 0
+		@net_salary = @total_salary - @taxwitheld*@employee.number_of_months
 	else
-		if @employee.number_of_months>=12
-			@net_salary = @total_salary-@tax_witheld*((@employee.number_of_months.to_i)%12)-@tax*(@employee.number_of_months.to_i/12)
-		else
-			@net_salary = @total_salary-@tax_witheld*((@employee.number_of_months.to_i)%12)
-		end
+		@net_salary = @total_salary - (@tax*(@employee.number_of_months/12).to_i - @tax_witheld*@employee.number_of_months)
 	end
+else
+	@net_salary = @total_salary - @tax_witheld
+end
+
 		render :show 
 		
 	end
