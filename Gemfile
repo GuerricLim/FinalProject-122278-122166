@@ -41,5 +41,5 @@ gem 'spring',        group: :development
 gem 'twitter-bootstrap-rails'
 gem 'simple_form'
 gem 'devise'
-gem 'rails_12factor', group: :production
+
 
